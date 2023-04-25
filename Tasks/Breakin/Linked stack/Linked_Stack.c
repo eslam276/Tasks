@@ -9,6 +9,7 @@
 void InitStack (Stack * s )
 {
     s->top = NULL ;
+    s->size=0;
 }
 
 
@@ -80,23 +81,6 @@ int  StackSize  (Stack * s)
     return s->size ; 
 }
 
-void ClearStack (Stack * s )
-{
-    StackEntry * ptr = s->top ;
-    
-    while (s->top != NULL)
-    {
-        s->top = s->top->next;
-
-        free(ptr);
-        ptr = s->top;
-
-
-    }
-    
-
-}
-
 void TraverseStack (Stack *s ,  void (*pf)(StackEntry) )
 {
 
@@ -110,6 +94,28 @@ void TraverseStack (Stack *s ,  void (*pf)(StackEntry) )
     }
 
     
+}
+
+
+
+
+void ClearStack (Stack * s )
+{
+    StackEntry * ptr = s->top ;
+    
+    while (s->top != NULL)
+    {
+        s->top = s->top->next;
+
+        free(ptr);
+        ptr = s->top;
+
+
+    }
+
+    s->size =0 ;
+    
+
 }
 
 
