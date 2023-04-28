@@ -170,6 +170,7 @@ void ClearStack (Stack * s )
 void CopyStack (Stack * old , Stack * new)
 {
 
+    ClearStack(new);
 
     StackNode *ptr = old->top ;
 
