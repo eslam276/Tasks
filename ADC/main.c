@@ -9,12 +9,13 @@ void main (void)
 
     PORT_voidInit();
     ADC_voidInit();
+
     uint8 Local_u8Volt ;
 
 
     while (1)
     {
-         Local_u8Volt = ADC_u8GetChannelReading(0);
+         Local_u8Volt = ADC_u8GetChannelReading(ADC_SINGLE_ENDED_CH0);
 
          DIO_u8SetPortValue(DIO_u8PORTD,Local_u8Volt);
 
